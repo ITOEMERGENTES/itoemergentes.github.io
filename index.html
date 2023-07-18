@@ -1,0 +1,525 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+ <nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Tecnológias Emergentes</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <span class="sr-only">View notifications</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        </button>
+
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            </button>
+          </div>
+
+          <!--
+            Dropdown menu, show/hide based on menu state.
+
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <!-- <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+             Active: "bg-gray-100", Not Active: ""
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+    </div>
+  </div>
+</nav>
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  ```
+-->
+<div class="bg-gray-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32 pt:20">
+      <h2 class="text-2xl font-bold text-gray-900">Tecnológias/Novedades</h2>
+
+      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+        
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://diarioti.com/wp-content/uploads/2023/07/quantum-microsoft.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./luis-osorio.html">
+              <span class="absolute inset-0"></span>
+              Osorio Hernández Luis Eduardo
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Supercomputadora cuántica en la próxima década</p>
+        </div>
+        
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.luispardocespedes.com/wp-content/uploads/2018/02/LPC-Blog-2-2-1.jpg" alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./lizeth_antonio.html">
+              <span class="absolute inset-0"></span>
+              Antonio Lopez Lizeth
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">¿Robara la inteligencia artificial nuestros trabajos?</p>
+        </div>
+        
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Bailon Hernandez Karoln Viridiana
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://sm.ign.com/t/ign_latam/news/x/xbox-to-bu/xbox-to-buy-activision-blizzard_9q9p.1280.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./jafed-calvo.html">
+              <span class="absolute inset-0"></span>
+              Calvo Torres Jafed
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Microsoft compra Activision</p>
+        </div>
+      
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.eleconomista.com.mx/__export/1616566788617/sites/eleconomista/img/2021/03/24/geolocalizacionshutterstock_1035018799.jpg_551917905.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./eva_chavez.html">
+              <span class="absolute inset-0"></span>
+              Chavez Serret Eva Maria
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">¿Geolocalización de dispositivos?</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Colmenares Cortés Oliver Axel
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://imagenes.elpais.com/resizer/o1sAyFFyBiA_cOeXRY7VcwV5Dw0=/1200x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/LJBQBE74IVBTJGL25SSFGZMM2I.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./abiu_franco.html">
+              <span class="absolute inset-0"></span>
+              Franco Matias Abiu Mahanaim
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Bard, el chat de inteligencia artificial de Google, llega a España</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./alfred-garcia.html">
+              <span class="absolute inset-0"></span>
+              García Cortés José Alfredo
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="joseDario.html">
+              <span class="absolute inset-0"></span>
+              Gonzalez Alonso Jose Dario
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Guevara González Abraham Yael
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Hernandez Garcia Itamar Sarahi
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://th.bing.com/th/id/OIF.CmY36U51K30dtGfZCxTxnQ?pid=ImgDet&rs=1" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="ludwin-herrera.html">
+              <span class="absolute inset-0"></span>
+              Herrera Vargas Ludwin Abimael
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.eleconomista.com.mx/__export/1660747395695/sites/eleconomista/img/2022/08/17/5_pasos_emprender_metaverso.jpg_1015297232.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./karen-lizeth.html">
+              <span class="absolute inset-0"></span>
+              José Gutiérrez Karen Lizeth
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">La UE quiere liderar el mundo del metaverso y evitar el dominio de las grandes tecnológicas</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Juarez Montes Leonardo Alejandro
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://noticias.imer.mx/wp-content/uploads/2023/02/PORTADAS-WEB-2.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="roberto-lascarez.html">
+              <span class="absolute inset-0"></span>
+              Lascarez Valeriano Roberto Carlos
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Chat GPT, la estrella en el mundo de la AI</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/04/11/6435dc266e25d.jpeg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="juan-luis-lazaro.html">
+              <span class="absolute inset-0"></span>
+              Lazaro Lopez Juan Luis
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Regulación china impulsa el control y desarrollo responsable de la Inteligencia Artificial generativa</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.infobae.com/new-resizer/VDb9uDdEhwhq8T9i8yWQVOAqrm4=/1440x810/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/XZ6224OZQBC7RIPVSVFYIL4IXE.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="leandro-leon.html">
+              <span class="absolute inset-0"></span>
+              Leon Perez Leandro
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Avances revolucionarios en la tecnología de inteligencia artificial</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2023/03/08/6408cc610429f.jpeg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./adrian-martinez.html">
+              <span class="absolute inset-0"></span>
+              Martinez Calderon Adrian
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia de inteligencia artificial</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://i.ytimg.com/vi/X1JXdnlAjnk/maxresdefault.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./Bernardo.html">
+              <span class="absolute inset-0"></span>
+              Martinez Santos Bernardo
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Científicos crean nanobots capaces de reparar órganos internos de forma autónoma</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Mendez Pinacho Miguel
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="nizvan-monteon-ricardez.html">
+              <span class="absolute inset-0"></span>
+              Monteón Ricárdez Nizvan
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.eleconomista.com.mx/__export/1681258717063/sites/eleconomista/img/2023/02/09/trabajo_inteligecia_artificial_shutterstock.jpeg_554688468.jpeg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./pinacho-osmar.html">
+              <span class="absolute inset-0"></span>
+              Pinacho Perez Osmar Jared
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">La agencia de noticias tendrá acceso a la tecnologia ...</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://www.realovirtual.com/pictures/2023/07/64aeef340c60f.jpg" alt="Roblox | MetaQuest" class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./jose-ramirez.html">
+              <span class="absolute inset-0"></span>
+              Ramirez Caballero Jose Manuel
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Roblox llegará a Meta Quest</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./viviana-isabel-salazar-vasquez.html">
+              <span class="absolute inset-0"></span>
+              Salazar Vásquez Viviana Isabel
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Smith Ruiz Abel Guillermo
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://i.blogs.es/e9d86a/actores-hollywood/1366_2000.jpeg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./miguel-sanchez.html">
+              <span class="absolute inset-0"></span>
+              Sánchez González Miguel Ángel
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Pagarles un solo día para generarles un clon con inteligencia artificial: actores dicen que Hollywood ya quiere reemplazarlos</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://img.chilango.com/2023/07/INSPARTK12-1.jpeg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./naim-torres.html">
+              <span class="absolute inset-0"></span>
+              Torres Cruz Naim Vladimir
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Inspark: el parque de realidad virtual que te transportará a otro planeta</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Vasquez Ramos Jose Eduardo
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://media.discordapp.net/attachments/994445626001604638/1129859387327004812/64af48c48fe2a.png?width=875&height=657" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="./georgina-velasco.html">
+              <span class="absolute inset-0"></span>
+              Velasco Ramirez Georgina
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">MinTic y Rappi darán becas de formación en tecnología y programación</p>
+        </div>
+        
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Santiago ramirez zayda Xochipilli
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Noticia</p>
+        </div>
+
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://wp.technologyreview.com/wp-content/uploads/2022/02/tr10-synthetic-data-16x9-1.png?fit=1126,633" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="eliu_palacios_chipule/eliu_palacios.html">
+              <span class="absolute inset-0"></span>
+              Palacios Chipule Eliu
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">Datos sintéticos para IA
+</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
