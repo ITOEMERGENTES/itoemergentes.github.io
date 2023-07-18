@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Título de la Noticia</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Si deseas agregar estilos personalizados, crea un archivo CSS y enlázalo aquí -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article {
+    max-width: 600px; 
+    text-align: center;
+  }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        max-height: 300px;
+    }
+
+    p {
+    text-align: justify;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Microsoft gana la demanda y es libre de Comprar Activision Blizzard</h1>
+    <p>Fecha de Publicación: 15/07/2023 <span id="fecha"></span></p>
+  </header>
+
+  <main>
+    <article>
+      <h2>Xbox acaba de ganar esta generación</h2>
+      <img src="https://i.blogs.es/658bed/chile-microsoft-activision-1-/450_1000.webp" alt="Cuando Cruz Azul goleó a River Plate en la Copa Libertadores">
+      <p>La compra del gigante de los videojuegos Activision Blizzard por parte de Microsoft por 60.400 millones de euros, anunciada en enero de 2022, se está convirtiendo en uno de los culebrones judiciales más largos del mundo corporativo. Ayer, Microsoft consiguió una importante victoria al conseguir esquivar, al menos temporalmente, el veto de de la Comisión Federal de Comercio de Estados Unidos, que quería impedir la operación.
+
+        El regulador estadounidense había solicitado a un tribunal que aplicase una medida cautelar para bloquear el acuerdo, hasta que hubiera un fallo definitivo. Pero los magistrados han desestimado la pretensión de la comisión (FTC, por sus siglas en inglés).
+        
+        El martes pasado, el gigante tecnológico Microsoft ya consiguió una victoria crucial en su lucha por adquirir Activision, cuando la jueza de San Francisco Jacqueline Scott Corley, desestimó el intento de bloqueo de la Federal Trade Comissión y que deja el camino pavimentado para que el pacto se produzca.
+        
+        La acción administrativa de la Federal Trade Comission sobre si la operación puede salir adelante o no, todavía no ha quedado resuelta de forma oficial, pero la decisión del tribunal considera que los argumentos de la FTC tienen pocos visos de ser suficiente como para detener la fusión, por lo que la justicia no aplicará medidas cautelares, algo que había solicitado hacer la autoridad de competencia.
+        
+        La FTC recurrió ante un tribunal superior, la Corte de Apelaciones del Noveno Circuito, pero el viernes se desestimó la pretensión de impedir el acuerdo de forma preventiva. </p>
+      <img src="https://sm.ign.com/t/ign_latam/news/x/xbox-to-bu/xbox-to-buy-activision-blizzard_9q9p.1280.jpg" alt="Cuando Cruz Azul goleó a River Plate en la Copa Libertadores">
+      <p>La decisión de la Corte implica que Microsoft puede cerrar el acuerdo de la fusión con Activision antes de la fecha límite del próximo 18 de julio, cuando tiene que hacer frente a un pago de 3.000 millones de dólares.
+
+        La acción administrativa de la Federal Trade Comission sobre si la operación puede salir adelante o no, todavía no ha quedado resuelta de forma oficial, pero la decisión del tribunal considera que los argumentos de la FTC tienen pocos visos de ser suficiente como para detener la fusión, por lo que la justicia no aplicará medidas cautelares, algo que había solicitado hacer la autoridad de competencia.
+        
+        Otro de los escollos que Microsoft tiene aún por delante es la oposición de la Autoridad de Mercados y Competencia del Reino Unido (CMA). Fuentes consultadas por Bloomberg señalan que los propietarios de Xbox estarían considerando vender su negocio de los juegos en la nube en el Reino Unido para abordar las preocupaciones de la CMA. </p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© Propiedad de Calvo Torres Jafed. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const fechaActual = new Date();
+    const fechaElemento = document.getElementById('fecha');
+    fechaElemento.textContent = fechaActual.toLocaleDateString();
+  </script>
+</body>
+</html>
